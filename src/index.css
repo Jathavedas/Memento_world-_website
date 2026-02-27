@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 7%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7%;
+    --primary: 45 65% 52%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 97%;
+    --secondary-foreground: 0 0% 7%;
+    --muted: 0 0% 97%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 45 65% 52%;
+    --accent-foreground: 0 0% 7%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 45 65% 52%;
+    --radius: 0rem;
+    
+    /* Custom Luxury Colors */
+    --luxury-gold: #D4AF37;
+    --luxury-gold-hover: #C9A227;
+    --luxury-black: #111111;
+    --luxury-white: #FFFFFF;
+    --luxury-gray: #F8F8F8;
+    --luxury-text: #666666;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  /* Luxury Button Styles */
+  .btn-luxury {
+    @apply px-8 py-4 bg-[#D4AF37] text-[#111111] text-sm tracking-[0.2em] uppercase font-medium;
+    @apply hover:bg-[#C9A227] transition-all duration-300;
+  }
+  
+  .btn-luxury-outline {
+    @apply px-8 py-4 border border-white/50 text-white text-sm tracking-[0.2em] uppercase font-medium;
+    @apply hover:border-[#D4AF37] hover:text-[#D4AF37] transition-all duration-300;
+  }
+  
+  /* Luxury Section Spacing */
+  .section-luxury {
+    @apply py-24 lg:py-32;
+  }
+  
+  /* Luxury Container */
+  .container-luxury {
+    @apply w-full px-6 sm:px-8 lg:px-16 xl:px-24;
+  }
+  
+  /* Gold Accent Line */
+  .gold-line {
+    @apply w-16 h-[1px] bg-[#D4AF37];
+  }
+  
+  /* Luxury Card Shadow */
+  .shadow-luxury {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  }
+  
+  .shadow-luxury-hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  }
+}
+
+@layer utilities {
+  /* Custom Scrollbar */
+  .scrollbar-luxury::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .scrollbar-luxury::-webkit-scrollbar-track {
+    background: #F8F8F8;
+  }
+  
+  .scrollbar-luxury::-webkit-scrollbar-thumb {
+    background: #D4AF37;
+    border-radius: 3px;
+  }
+  
+  /* Text Selection */
+  ::selection {
+    background: #D4AF37;
+    color: #111111;
+  }
+  
+  /* Focus Styles */
+  *:focus-visible {
+    outline: 2px solid #D4AF37;
+    outline-offset: 2px;
+  }
+  
+  /* Smooth Image Loading */
+  img {
+    @apply transition-opacity duration-300;
+  }
+  
+  img[loading] {
+    opacity: 0;
+  }
+  
+  img.loaded {
+    opacity: 1;
+  }
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Loading Shimmer Effect */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    #F8F8F8 25%,
+    #EEEEEE 50%,
+    #F8F8F8 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
